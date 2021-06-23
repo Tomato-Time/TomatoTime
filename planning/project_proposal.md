@@ -1,6 +1,6 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
 ## Problem Statement
 
