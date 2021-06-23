@@ -6,9 +6,9 @@ SITE Course Year: **2021**
 
 Cohort: **Workday**
 
-Team Member Names:**Insert Team Member Names**
+Team Member Names:**Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
-Mentors Names: **Insert Professional Mentor Names**
+Mentors Names: **Albert Wang, **
 
 ## Project Overview
 
