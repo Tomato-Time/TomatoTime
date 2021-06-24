@@ -14,7 +14,21 @@ What is the main purpose of your project? What are the key features your site ha
 
 ## Expected Features List
 
-Add a list of your groups's brainstormed features list
+- Core
+    - A large timer counts down (the timer can be paused & played)
+    - Login feature
+    - Landing page with the ability to interact with buttons that take you to a different page
+    - To do list that allows the user to add and remove tasks
+    - Tracks when a user completed a full Pomodoro (month/day/year) by associating activity to their account
+    - Allow the user to customize the intervals of work/break in a "settings" tab
+- Stretch (not in any particular order)
+    - Timer displays on URL title
+    - About page with information about the Pomodoro method
+    - Information that is meant to serve as positive affirmations or motivators for the user. A feature that the user can opt in or out of. Managed in settings tab.
+    - Dark mode
+    - Ability to share link so that multiple people can work off of the same clock
+    - Ability to label a task and then keep track of how long was spent working on that labeled task
+    - Only a large timer displays when the page is minimized to a small size
 
 ## Related Work
 
