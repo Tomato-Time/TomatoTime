@@ -4,7 +4,7 @@ Pod Members: **Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
 ## Problem Statement
 
-Insert your groups problem statement and target audience.
+Students usually have trouble focusing on their tasks and forming effective study habits.
 
 ## Description
 
