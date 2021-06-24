@@ -32,7 +32,7 @@ What is the main purpose of your project? What are the key features your site ha
 
 ## Related Work
 
-What similar apps and websites? How will your project stand out from these other websites?
+Similar apps and websites are Pomodor, Marinara Timer, Forest, and Be Focused Pro. These apps and websites all have aspects that we enjoy; we can take the best features from each of the websites/similar websites and implement them in our own project to improve both the focus and productivity of the user. Implementation of a to-do list and other features similar to a GitHub-like tracking system can encourage students to continue using our website.  Our focus is to create one Pomodoro website that has the most important aspects from other websites to maximize productivity and it will be also customizable, so that the user can utilize what they want.
 
 ## Open Questions
 
