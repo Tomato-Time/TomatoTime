@@ -8,7 +8,7 @@ Cohort: **Workday**
 
 Team Member Names: **Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
-Mentors Names: **Albert Wang, Karen Fang, **
+Mentors Names: **Albert Wang, Karen Fang, Cang Truong**
 
 ## Project Overview
 
