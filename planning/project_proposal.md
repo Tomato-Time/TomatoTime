@@ -4,12 +4,11 @@ Pod Members: **Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
 ## Problem Statement
 
-Students usually have trouble focusing on their tasks and forming effective study habits.
+As students, we know how difficult it can be to find effective study techniques that could carry through as habits. With constant distractions, students can find themselves drifting away from their tasks or study excessively for long periods of time. Both can be ineffective and contribute to unhealthy study habits which, can affect one's mental health. Our target audiences are students and individuals who work in an office-like setting who hope to improve their productivity, manage their distractions, maintain motivation, and decrease their mental fatigue.
 
 ## Description
 
-What is the main purpose of your project? What are the key features your site has to offer its users? How will your targeted audience use your website?
- creating a Pomodoro website that keeps them engaged with leaderboards (like a video game), keeping their to-do list in the same place, and various features can help keep them focused on what to do. As students ourselves we feel that our website is mainly for the student population but our site would benefit anyone trying to be more efficient with their work or study habits. 
+Our audience will use our website to implement the Pomodoro method by using our timer and web features which can be customized to their specific needs while promoting a serene work environment. They can add/remove tasks to their to-do list and track their progress by the day, week, month, and year by accessing their personal account.
 
 
 ## Expected Features List
