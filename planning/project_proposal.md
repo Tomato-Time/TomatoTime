@@ -35,4 +35,4 @@ Similar apps and websites are Pomodor, Marinara Timer, Forest, and Be Focused Pr
 
 ## Open Questions
 
-What questions do you still have? What topics do you need to research more for your project?
+We need to research how to implement some of the features we've mentioned above (this can be supplemented with tutorials online)
