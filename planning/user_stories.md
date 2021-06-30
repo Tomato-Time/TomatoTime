@@ -35,7 +35,7 @@ As students, we know how difficult it can be to find effective study techniques 
 
 -**Office Worker:** 
 
-1.As an office worker, I want to see the timer without having to switch tabs, so that I can stay focused while I work. 
+1.As an office worker, I want to see the timer without having to switch tabs, so that I can stay focused while I work.
 2.As an office worker, I want to visit a website that makes me feel calm, so that I could be reminded to prioritize my mental health.
 3.As an office worker, I want to be reminded discreetly to take breaks, so that I don't distract my co-workers. 
 4.As an office worker, I want to be given the option to opt in or out of features (such as affirmations, or dark mode) so that I can customize what I use and remove features I don't need in order to keep my workspace uncluttered. 
