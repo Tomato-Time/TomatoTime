@@ -1,14 +1,15 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Nicholas de Souza, Yuvia Leon, Susan Guerrero**
 
 ## Problem Statement
 
-Insert your groups problem statement and target audience.
+As students, we know how difficult it can be to find effective study techniques that could carry through as habits. With constant distractions, students can find themselves drifting away from their tasks or study excessively for long periods of time. Both can be ineffective and contribute to unhealthy study habits which, can affect one's mental health. Our target audiences are students and individuals who work in an office-like setting who hope to improve their productivity, manage their distractions, maintain motivation, and decrease their mental fatigue.
 
 ## User Roles
 
-Include at least at least 1, but no more than 3, user roles
+**Student:** a user who is seeking to improve their productivity and study habits.
+**Office Worker:** a user who is seeking to maintain motivation and decrease their mental fatigue.
 
 ## User Personas
 
