@@ -41,6 +41,7 @@ As students, we know how difficult it can be to find effective study techniques 
 4.As an office worker, I want to be given the option to opt in or out of features (such as affirmations, or dark mode) so that I can customize what I use and remove features I don't need in order to keep my workspace uncluttered. 
 5.As an office worker, I want to be reminded to step away from my desk, so that I can reduce eye strain and be reminded to walk and stretch. 
 6.As an office worker, I want to have an option to continue working along with my timer, so that I can continue with my workflow. 
+6. As a student, I want to be able to use the same Pomodoro timer with my friends, so that we could study together.
 
 
 ## Wireframe (Bonus)
