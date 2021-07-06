@@ -29,6 +29,7 @@ Model for users:
 | first_name | TEXT | user's first name |
 | last_name |  TEXT | user's last name |
 | email | TEXT NOT NULL UNIQUE | email is unique and has an @ symbol |
+| dark_mode | BOOLEAN | indicates whether the user wants light or dark mode | 
 | created_at |  TIMESTAMP | date when user created account |
 
 Model for tasks:
@@ -40,6 +41,13 @@ Model for tasks:
 | priority | INTEGER | 1-5 priority level |
 | deadline | TIME | the time the user hopes to be done with that task |
 | user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
+
+Model for timer: 
+
+| **Column name** | **type** | **description** |
+| :----         | :---:      | :---:         |
+| minutes_logged | INTEGER | we want some way to keep track of time spent working | 
+| logged_at | TIMESTAMP | keeping track of what day the user used our timer | 
 
 
 
