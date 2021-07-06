@@ -20,7 +20,29 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 ## Data Model
 
-Describe your app's data model using diagrams or tables
+Model for users: 
+
+| **Column name** | **type** | **description** |
+| :----         | :---:      | :---:         |
+| id        | SERIAL | PRIMARY KEY |
+| password |  TEXT NOT NULL | user's hashed password |
+| first_name | TEXT | user's first name |
+| last_name |  TEXT | user's last name |
+| email | TEXT NOT NULL UNIQUE | email is unique and has an @ symbol |
+| created_at |  TIMESTAMP | date when user created account |
+
+Model for tasks:
+
+| **Column name** | **type** | **description** |
+| :----         | :---:      | :---:         |
+| id        | SERIAL | PRIMARY KEY |
+| input | CHAR | the task that the user added to their todo list |
+| priority | INTEGER | 1-5 priority level |
+| deadline | TIME | the time the user hopes to be done with that task |
+| user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
+
+
+
 
 ## Endpoints
 
