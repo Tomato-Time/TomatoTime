@@ -31,7 +31,6 @@ As students, we know how difficult it can be to find effective study techniques 
 3. As a student, I want to go to a website that's not distracting, so that I stay focused while I study.
 4. As a student, I want to be reminded to take breaks, so that I don't get overwhelmed with my homework. 
 5. As a student, I want to be able to use the same Pomodoro timer with my friends, so that we could study together.
-6. As a student, I want to be able to use the same Pomodoro timer with my friends, so that we could study together.
 
 -**Office Worker:** 
 
