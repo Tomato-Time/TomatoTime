@@ -48,6 +48,10 @@ Model for timer:
 | :----         | :---:      | :---:         |
 | minutes_logged | INTEGER | we want some way to keep track of time spent working | 
 | logged_at | TIMESTAMP | keeping track of what day the user used our timer | 
+| pomodoro | INTEGER | minutes user wants to work |
+| short_break| INTEGER | minutes user wants their short break to be | 
+| long_break | INTEGER | minutes user wants their long break to be | 
+| user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
 
 
 
@@ -68,6 +72,7 @@ User story identifier:
 | Read | GET | fetch the list of tasks on todo | ? |
 | Delete | DELETE | delete a task from todo | ? | 
 | Create | POST | add a new task to todo | ? | 
+| Update | PUT | Update the user's timer interval preferences | 
 
 
 
