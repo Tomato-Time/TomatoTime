@@ -56,4 +56,19 @@ Model for timer:
 
 List the API endpoints you will need to implement.
 
+User story identifier: 
+
+| **User Story** | **Id** |
+| :----         | :---:   |
+
+| **CRUD** | **HTTP Verb** | **description** | **User stories** |
+| :----         | :---:      | :---:         | :---: |
+| Create | POST | Create a new user account | ? | 
+| Update | PUT | Update user's profile data (ex darkmode feature) | ? |
+| Read | GET | fetch the list of tasks on todo | ? |
+| Delete | DELETE | delete a task from todo | ? | 
+| Create | POST | add a new task to todo | ? | 
+
+
+
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
