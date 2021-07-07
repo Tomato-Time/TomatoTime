@@ -17,15 +17,17 @@ Our audience will use our website to implement the Pomodoro method by using our 
     - A large timer counts down (the timer can be paused & played)
     - Login feature
     - Landing page with the ability to interact with buttons that take you to a different page
-    - To do list that allows the user to add and remove tasks
+    - To-do list that allows the user to add and remove tasks
     - Tracks when a user completed a full Pomodoro (month/day/year) by associating activity to their account
-    - Allow the user to customize the intervals of work/break in a "settings" tab
-- Stretch (not in any particular order)
+    - Allow the user to customize the intervals of their work/break times and save it in their account
     - Timer displays on URL title
+    - Allow user to add own message or affirmation. (opt-in/out)
+    - Dark/Light mode
+    - Ability to share a link so that multiple people can work off of the same clock
+    - Give the user an option to have "flow time" when the user wants to continue working with a timer that counts up
+    - 
+- Stretch (not in any particular order)
     - About page with information about the Pomodoro method
-    - Information that is meant to serve as positive affirmations or motivators for the user. A feature that the user can opt in or out of. Managed in settings tab.
-    - Dark mode
-    - Ability to share link so that multiple people can work off of the same clock
     - Ability to label a task and then keep track of how long was spent working on that labeled task
     - Only a large timer displays when the page is minimized to a small size
 
