@@ -68,9 +68,6 @@ List the API endpoints you will need to implement.
 
 User story identifier: 
 
-| **User Story** | **Id** |
-| :----         | :---:   |
-
 | **CRUD** | **HTTP Verb** | **description** | **User stories** |
 | :----         | :---:      | :---:         | :---: |
 | Create | POST | Create a new user account | S2 | 
