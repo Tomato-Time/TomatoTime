@@ -29,8 +29,13 @@ Model for users:
 | first_name | TEXT | user's first name |
 | last_name |  TEXT | user's last name |
 | email | TEXT NOT NULL UNIQUE | email is unique and has an @ symbol |
+| created_at |  TIMESTAMP | date when user created account | 
+
+Model for settings: 
+
+| **Column name** | **type** | **description** |
 | dark_mode | BOOLEAN | indicates whether the user wants light or dark mode | 
-| created_at |  TIMESTAMP | date when user created account |
+| user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
 
 Model for tasks:
 
@@ -46,6 +51,7 @@ Model for timer:
 
 | **Column name** | **type** | **description** |
 | :----         | :---:      | :---:         |
+| id        | SERIAL | PRIMARY KEY |
 | minutes_logged | INTEGER | we want some way to keep track of time spent working | 
 | day_logged | TIMESTAMP | keeping track of what day the user used our timer | 
 | pomodoro | INTEGER | minutes user wants to work |
@@ -67,13 +73,15 @@ User story identifier:
 
 | **CRUD** | **HTTP Verb** | **description** | **User stories** |
 | :----         | :---:      | :---:         | :---: |
-| Create | POST | Create a new user account | ? | 
-| Update | PUT | Update user's profile data (ex darkmode feature) | ? |
-| Read | GET | fetch the list of tasks on todo | ? |
-| Delete | DELETE | delete a task from todo | ? | 
-| Create | POST | add a new task to todo | ? | 
-| Update | PUT | Update the user's timer interval preferences | ? | 
-| Update | PUT | allow user to edit the todo task | ? | 
+| Create | POST | Create a new user account | S2 | 
+| Create | POST | Create a new start point for minutes being tracked | S1, S2, O2 | 
+| Update | PUT | Update user's minutes for the day | S2, O2 |
+| Update | PUT | Update user's profile data (ex darkmode feature) | O4 |
+| Read | GET | fetch the list of tasks on todo | S5 |
+| Delete | DELETE | delete a task from todo | S5 | 
+| Create | POST | add a new task to todo | S5 | 
+| Update | PUT | Update the user's timer interval preferences | S1, S2 | 
+| Update | PUT | allow user to edit the todo task | S5 | 
 
 
 
