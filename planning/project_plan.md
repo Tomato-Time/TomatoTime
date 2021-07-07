@@ -34,6 +34,7 @@ Model for users:
 Model for settings: 
 
 | **Column name** | **type** | **description** |
+| :----         | :---:      | :---:         |
 | dark_mode | BOOLEAN | indicates whether the user wants light or dark mode | 
 | user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
 
