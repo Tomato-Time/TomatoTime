@@ -48,25 +48,24 @@ Model for tasks:
 | deadline | TIME | the time the user hopes to be done with that task |
 | user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
 
-Model for timer: 
+Model for countdown_timer: 
 
 | **Column name** | **type** | **description** |
 | :----         | :---:      | :---:         |
 | id        | SERIAL | PRIMARY KEY |
-| minutes_logged | INTEGER | we want some way to keep track of time spent working | 
-| day_logged | TIMESTAMP | only triggered once at the beginning of a session | 
 | pomodoro | INTEGER | minutes user wants to work |
 | short_break| INTEGER | minutes user wants their short break to be | 
 | long_break | INTEGER | minutes user wants their long break to be | 
 | user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
 
-Model for timer_session: 
+Model for countdown_timer_session: 
 
 | **Column name** | **type** | **description** |
 | :----         | :---:      | :---:         |
 | start_time | TIMESTAMP | time the session is started | 
 | end_time | TIMESTAMP | time the session was ended | 
-
+| minutes_logged | INTEGER | keeping track of time worked: updated after each working period ends| 
+| day_logged | TIMESTAMP | only triggered once at the beginning of a session |
 
 
 
@@ -80,15 +79,13 @@ User story identifier:
 | :----         | :---:      | :---:         | :---: | :--------------: |
 | Create | POST | Create a new user account | S2 | modify the users model | 
 | Create | POST | Create a new start point for minutes being tracked activated when user hits play | S1, S2, O2 | ? | 
-| Update | PUT | Update user's minutes for the day | S2, O2 | ? | 
+| Update | PUT | Update user's minutes for the day | S2, O2 | modifies the countdown_timer_session table | 
 | Update | PUT | Update user's account preferences (ex darkmode feature) | O4 | modifies settings model | 
-| Update | PUT | Update the user's minutes logged | ? | ? | 
 | Read | GET | fetch the list of tasks on todo | S5 | reads from tasks model | 
-| Delete | DELETE | delete a task from todo | S5 | modifies tasks model, deletes a task by id | 
+| Delete | DELETE | delete a task from todo | S5 | modifies tasks model, deletes an task by id | 
 | Create | POST | add a new task to todo | S5 | adds a new todo to tasks table | 
-| Update | PUT | Update the user's timer interval preferences | S1, S2 | modifies timer model | 
+| Update | PUT | Update the user's timer interval preferences | S1, S2 | modifies countdown_timer model | 
 | Update | PUT | allow user to edit the todo task | S5 | modifies tasks table, edit an existing todo accessed by id | 
-
 
 
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
