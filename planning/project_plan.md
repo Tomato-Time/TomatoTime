@@ -52,20 +52,20 @@ Model for countdown_timer:
 
 | **Column name** | **type** | **description** |
 | :----         | :---:      | :---:         |
-| id        | SERIAL | PRIMARY KEY |
+| id        | SERIAL | PRIMARY KEY a new countdown timer is created at 1/4 start|
 | pomodoro | INTEGER | minutes user wants to work |
 | short_break| INTEGER | minutes user wants their short break to be | 
 | long_break | INTEGER | minutes user wants their long break to be | 
 | user_id | INTEGER | REFERENCES users(id) ON DELETE CASCADE |
+| day_logged | TIMESTAMP | only triggered once at the beginning of a session |
 
 Model for countdown_timer_session: 
 
 | **Column name** | **type** | **description** |
 | :----         | :---:      | :---:         |
-| start_time | TIMESTAMP | time the session is started | 
-| end_time | TIMESTAMP | time the session was ended | 
-| minutes_logged | INTEGER | keeping track of time worked: updated after each working period ends| 
-| day_logged | TIMESTAMP | only triggered once at the beginning of a session |
+| minutes_logged | INTEGER | keeping track of time worked: updated after each focus period ends|
+| user_id | INTEGER | REFERENCES countdown_timer(id) |
+
 
 
 
