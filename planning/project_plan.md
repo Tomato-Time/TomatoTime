@@ -43,7 +43,9 @@ As students, we know how difficult it can be to find effective study techniques 
 
 ## Pages/Screens
 
-List all the pages and screens in the app. Include wireframes for at least 3 of them.
+Low-fidelity wireframe: https://www.figma.com/file/12mg0vhX8sHCfiKVjF6EbB/Capstone-low-fidelity-wireframe?node-id=31%3A34
+
+Low-fidelity wireframe: https://www.figma.com/file/12mg0vhX8sHCfiKVjF6EbB/Capstone-Wireframes?node-id=0%3A1
 
 ## Data Model
 
