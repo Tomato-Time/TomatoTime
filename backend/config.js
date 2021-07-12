@@ -2,6 +2,9 @@ require("dotenv").config();
 require("colors");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
+const SECRET_KEY = process.env.SECRET_KEY || "secret_dev";
+
+const IS_TESTING = process.env.NODE_ENV === "test";
 
 function getDatabaseUri() {
   const dbUser = process.env.DATABASE_USER || "postgres";
@@ -20,13 +23,21 @@ function getDatabaseUri() {
   );
 }
 
+// Speed up bcrypt for tests when security isn't important
+const BCRYPT_WORK_FACTOR = IS_TESTING ? 4 : 13;
+
 // console.log("process.env".yellow, Object.keys(process.env));
 console.log("Pomodoro Webapp Config:".red);
 console.log("PORT:".blue, PORT);
+console.log("IS_TESTING:".blue, IS_TESTING);
+console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR);
 console.log("Database:".blue, getDatabaseUri());
 console.log("---");
 
 module.exports = {
   PORT,
   getDatabaseUri,
+  SECRET_KEY,
+  IS_TESTING,
+  BCRYPT_WORK_FACTOR,
 };
