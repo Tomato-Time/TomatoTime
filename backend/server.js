@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const { PORT } = require("./config");
+const authRoutes = require("./routes/auth");
 
 const { NotFoundError } = require("./utils/errors");
 
@@ -12,6 +13,9 @@ app.use(cors());
 app.use(morgan("tiny"));
 // parse incoming requests with JSON payloads
 app.use(express.json());
+
+// set routes!
+app.use("/auth", authRoutes);
 
 /** Handle 404 errors -- this matches everything
  * if the endpoint that the user sends a request to does not match any of our endpoints in our app
