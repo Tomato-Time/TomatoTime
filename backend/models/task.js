@@ -2,8 +2,23 @@ const db = require("../db");
 const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Task {
-  static async fetchAllTasks() {
+  static async fetchAllTasks({ user }) {
     // get list of tasks with most recent at bottom
+    const results = await db.query(
+      `
+        SELECT t.id,
+                t.input, 
+                t.priority, 
+                t.deadline, 
+                t.user_id, 
+                u.email
+        FROM tasks AS t
+            JOIN users AS u ON u.id = t.user_id
+            WHERE u.email = $1 
+        `,
+      [user.email]
+    );
+    return results.rows;
   }
 
   static async addTask({ task, user }) {
