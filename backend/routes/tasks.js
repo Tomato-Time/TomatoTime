@@ -7,9 +7,9 @@ const Task = require("../models/task");
 router.get("/", async (req, res, next) => {
   try {
     //
-    // const getTasks = await Task.fetchAllTasks();
-    // return res.status(200).json({ getTasks });
-    res.send("this is the get route for tasks");
+    const { user } = res.locals;
+    const getTasks = await Task.fetchAllTasks({ user });
+    return res.status(200).json({ getTasks });
   } catch (err) {
     next(err);
   }
@@ -18,9 +18,9 @@ router.get("/", async (req, res, next) => {
 // add a new task to todo list
 router.post("/", async (req, res, next) => {
   try {
-    // const newTask = await Task.addTask(req.body);
-    // return res.status(201).json({ newTask });
-    res.send("this is the post route for tasks");
+    const { user } = res.locals;
+    const newTask = await Task.addTask({ user, task: req.body });
+    return res.status(201).json({ newTask });
   } catch (err) {
     next(err);
   }
@@ -40,9 +40,8 @@ router.delete("/:taskId", async (req, res, next) => {
 // update the contents of a task in todo list
 router.put("/:taskId", async (req, res, next) => {
   try {
-    // const updatedTask = await Task.updateTask(taskId);
-    // return res.status(200).json({ updatedTask });
-    res.send("this is the put route for tasks");
+    const updatedTask = await Task.updateTask(taskId);
+    return res.status(200).json({ updatedTask });
   } catch (err) {
     next(err);
   }

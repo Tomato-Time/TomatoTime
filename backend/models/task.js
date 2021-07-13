@@ -1,5 +1,5 @@
 const db = require("../db");
-const { BadRequestError } = require("../utils/errors");
+const { BadRequestError, NotFoundError } = require("../utils/errors");
 
 class Task {
   static async fetchAllTasks() {
@@ -8,12 +8,15 @@ class Task {
 
   static async addTask({ task, user }) {
     // add a new task to user's list
-    const requiredFields = ["input", "priority, deadline"];
+    const requiredFields = ["input", "priority", "deadline"];
     requiredFields.forEach((field) => {
       if (!task.hasOwnProperty(field)) {
         throw new BadRequestError(
           `Required field - ${field} -is missing from request body`
         );
+      }
+      if (task.input.length > 100) {
+        throw new BadRequestError(`input must be 100 characters or less`);
       }
     });
     const results = await db.query(
@@ -28,8 +31,7 @@ class Task {
         `,
       [task.input, task.priority, task.deadline, user.email]
     );
-    console.log("result", result);
-    return result.rows[0];
+    return results.rows[0];
   }
 
   static async deleteTask() {
