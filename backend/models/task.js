@@ -1,6 +1,7 @@
 const db = require("../db");
 const { BadRequestError, NotFoundError } = require("../utils/errors");
 
+// NOTE THE FETCH ALL TASKS FUNCTION NEED TO ACCESS TIMESTAMP THUS SCHEMA NEEDS TO BE UPDATED
 class Task {
   static async fetchAllTasks({ user }) {
     // get list of tasks with most recent at bottom
@@ -30,10 +31,12 @@ class Task {
           `Required field - ${field} -is missing from request body`
         );
       }
-      if (task.input.length > 100) {
-        throw new BadRequestError(`input must be 100 characters or less`);
-      }
     });
+    if (task.input.length > 100) {
+      throw new BadRequestError(
+        `input must be 100 characters or less. Your input was ${task.input.length} characters long.`
+      );
+    }
     const results = await db.query(
       `
         INSERT INTO tasks (input, priority, deadline, user_id)
@@ -49,12 +52,51 @@ class Task {
     return results.rows[0];
   }
 
-  static async deleteTask() {
+  static async deleteTask({ taskId, user }) {
     // delete a task
+    const results = await db.query(
+      `
+        DELETE FROM tasks
+        WHERE id = $1
+        RETURNING id,
+                input, 
+                priority, 
+                deadline
+        `,
+      [taskId]
+    );
+    return results.rows[0];
   }
+  // CURRENTLY THE UPDATE TASK WORKS BY ID AND DOES NOT CHECK FOR USER INFO
+  static async updateTask({ taskUpdate, taskId, user }) {
+    //update a task on list by id
+    const requiredFields = ["input", "priority", "deadline"];
+    requiredFields.forEach((field) => {
+      if (!taskUpdate.hasOwnProperty(field)) {
+        throw new BadRequestError(
+          `Required field - ${field} -is missing from request body`
+        );
+      }
+    });
+    if (taskUpdate.input.length > 100) {
+      throw new BadRequestError(`input must be 100 characters or less`);
+    }
+    const results = await db.query(
+      `
+        UPDATE tasks
+        SET input = $1, 
+        priority = $2, 
+        deadline = $3
 
-  static async updateTask() {
-    //update a task on list
+        WHERE id = $4
+        RETURNING id,
+                input, 
+                priority, 
+                deadline
+        `,
+      [taskUpdate.input, taskUpdate.priority, taskUpdate.deadline, taskId]
+    );
+    return results.rows[0];
   }
 }
 module.exports = Task;
