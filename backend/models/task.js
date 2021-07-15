@@ -57,14 +57,16 @@ class Task {
     const results = await db.query(
       `
         DELETE FROM tasks
-        WHERE id = $1
+        WHERE id = $1 
+        AND user_id = (SELECT id FROM users WHERE email = $2)
         RETURNING id,
                 input, 
                 priority, 
                 deadline
         `,
-      [taskId]
+      [taskId, user.email]
     );
+    console.log("results", results.rows[0]);
     return results.rows[0];
   }
   // CURRENTLY THE UPDATE TASK WORKS BY ID AND DOES NOT CHECK FOR USER INFO
@@ -89,12 +91,19 @@ class Task {
         deadline = $3
 
         WHERE id = $4
+        AND user_id = (SELECT id FROM users WHERE email = $5)
         RETURNING id,
                 input, 
                 priority, 
                 deadline
         `,
-      [taskUpdate.input, taskUpdate.priority, taskUpdate.deadline, taskId]
+      [
+        taskUpdate.input,
+        taskUpdate.priority,
+        taskUpdate.deadline,
+        taskId,
+        user.email,
+      ]
     );
     return results.rows[0];
   }

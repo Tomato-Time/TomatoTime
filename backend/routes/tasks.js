@@ -48,7 +48,7 @@ router.put("/:taskId", async (req, res, next) => {
       taskId,
       user,
     });
-    return res.status(200).json({ updatedTask, user });
+    return res.status(200).json({ updatedTask });
   } catch (err) {
     next(err);
   }
