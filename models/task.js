@@ -8,8 +8,8 @@ class Task {
     const results = await db.query(
       `
         SELECT t.id,
-                t.input, 
-                t.priority, 
+                t.input,
+                t.priority,
                 t.deadline, 
                 t.user_id, 
                 u.email
