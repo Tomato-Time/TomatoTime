@@ -16,7 +16,7 @@ CREATE TABLE tasks (
     id          SERIAL PRIMARY KEY, 
     input       VARCHAR(100) NOT NULL, 
     priority    INTEGER CHECK (priority > 0 AND priority <= 5), 
-    deadline    TIME, 
+    deadline    TIME,
     user_id     INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -25,11 +25,11 @@ CREATE TABLE countdown_timer (
     pomodoro        INTEGER NOT NULL, 
     short_break     INTEGER NOT NULL, 
     long_break      INTEGER NOT NULL, 
-    user_id         INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    day_logged      TIMESTAMP DEFAULT NOW()
+    user_id         INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE countdown_timer_session (
-    minutes_logged      INTEGER, 
+    minutes_logged      INTEGER,
+    date_logged         DATE, 
     user_id             INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
