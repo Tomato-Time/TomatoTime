@@ -30,6 +30,7 @@ CREATE TABLE countdown_timer (
 
 CREATE TABLE countdown_timer_session (
     minutes_logged      INTEGER,
-    date_logged         DATE, 
+    date_logged         DATE,
+    round_count         INTEGER, 
     user_id             INTEGER REFERENCES users(id) ON DELETE CASCADE
 );

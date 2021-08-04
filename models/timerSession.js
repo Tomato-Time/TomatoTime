@@ -6,13 +6,19 @@ class TimerSession {
     // console.log("minutes", minutes);
     const results = await db.query(
       `
-            INSERT INTO countdown_timer_session (minutes_logged, date_logged, user_id)
-            VALUES ($1, $2, (SELECT id FROM users WHERE email = $3))
+            INSERT INTO countdown_timer_session (minutes_logged, date_logged, round_count, user_id)
+            VALUES ($1, $2, $3, (SELECT id FROM users WHERE email = $4))
             RETURNING minutes_logged,
+                      round_count,
                       date_logged, 
                       user_id
             `,
-      [minutes.minutes_logged, minutes.date_logged, user.email]
+      [
+        minutes.minutes_logged,
+        minutes.date_logged,
+        minutes.round_count,
+        user.email,
+      ]
     );
     return results.rows[0];
   }
@@ -41,6 +47,28 @@ class TimerSession {
               user_id
       FROM(
         SELECT SUM(minutes_logged),
+                date_logged,
+                user_id
+        FROM countdown_timer_session
+        GROUP BY date_logged, user_id) foo
+      LEFT JOIN users
+      ON users.id = foo.user_id
+      WHERE email = $1
+      ORDER BY date_logged
+      `,
+      [user.email]
+    );
+    return results.rows;
+  }
+  static async fetchUserRoundCount({ user }) {
+    const results = await db.query(
+      `
+      SELECT email,
+              date_logged, 
+              sum, 
+              user_id
+      FROM(
+        SELECT SUM(round_count),
                 date_logged,
                 user_id
         FROM countdown_timer_session
