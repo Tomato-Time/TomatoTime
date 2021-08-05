@@ -17,6 +17,7 @@ CREATE TABLE tasks (
     input       VARCHAR(100) NOT NULL, 
     priority    INTEGER CHECK (priority > 0 AND priority <= 5), 
     deadline    TIME,
+    checked      BOOLEAN DEFAULT FALSE,
     user_id     INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 

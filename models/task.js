@@ -10,7 +10,8 @@ class Task {
         SELECT t.id,
                 t.input,
                 t.priority,
-                t.deadline, 
+                t.deadline,
+                t.checked, 
                 t.user_id, 
                 u.email
         FROM tasks AS t
@@ -39,15 +40,15 @@ class Task {
     }
     const results = await db.query(
       `
-        INSERT INTO tasks (input, priority, deadline, user_id)
-        VALUES ($1, $2, $3, (SELECT id FROM users WHERE email = $4))
+        INSERT INTO tasks (input, priority, deadline, checked, user_id)
+        VALUES ($1, $2, $3, $4, (SELECT id FROM users WHERE email = $5))
         RETURNING id, 
                 input,
                 priority,
                 deadline, 
                 user_id
         `,
-      [task.input, task.priority, task.deadline, user.email]
+      [task.input, task.priority, task.deadline, task.checked, user.email]
     );
     return results.rows[0];
   }
@@ -62,7 +63,8 @@ class Task {
         RETURNING id,
                 input, 
                 priority, 
-                deadline
+                deadline,
+                checked
         `,
       [taskId, user.email]
     );
@@ -88,19 +90,22 @@ class Task {
         UPDATE tasks
         SET input = $1, 
         priority = $2, 
-        deadline = $3
+        deadline = $3,
+        checked = $4
 
-        WHERE id = $4
-        AND user_id = (SELECT id FROM users WHERE email = $5)
+        WHERE id = $5
+        AND user_id = (SELECT id FROM users WHERE email = $6)
         RETURNING id,
                 input, 
                 priority, 
-                deadline
+                deadline,
+                checked
         `,
       [
         taskUpdate.input,
         taskUpdate.priority,
         taskUpdate.deadline,
+        taskUpdate.checked,
         taskId,
         user.email,
       ]

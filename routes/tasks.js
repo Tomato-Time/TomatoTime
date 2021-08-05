@@ -38,7 +38,7 @@ router.delete("/:taskId", async (req, res, next) => {
   }
 });
 
-// update the contents of a task in todo list
+// update a task to complete or not complete
 router.put("/:taskId", async (req, res, next) => {
   try {
     const { user } = res.locals;
